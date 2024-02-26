@@ -1,7 +1,7 @@
-package Services.Initializers;
+package serviceClasses.Initializers;
 
-import Classes.Entities.Base.Entity;
-import Data.Enemies.Bestiarium;
+import dataClasses.Enemies.Bestiary;
+import dataClasses.Enemies.Entity;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -9,7 +9,7 @@ import org.w3c.dom.NodeList;
 import java.util.ArrayList;
 import java.util.List;
 
-import static Services.XMLReader.readXMLDocument;
+import static serviceClasses.XML.XMLReader.readXMLDocument;
 
 public class EnemyInitializor {
     public static void initializeEnemies(String filepath) {
@@ -38,6 +38,6 @@ public class EnemyInitializor {
                 System.out.println("-------------------------------------");*/
             }
         }
-        Bestiarium.getInstance().setEntities(enemies);
+        Bestiary.getInstance().setEntities(enemies);
     }
 }

@@ -1,8 +1,8 @@
-package Services;
+package serviceClasses;
 
-import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
 
 public class XMLReader {
     public static org.w3c.dom.Document readXMLDocument(String filepath){

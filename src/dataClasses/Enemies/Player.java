@@ -1,9 +1,8 @@
-package Classes.Entities;
+package dataClasses;
 
-import Classes.Entities.Base.Entity;
-import Data.Map.Map;
-import Data.Map.MapCell;
-import Data.Story.Storyline;
+import dataClasses.Map.Map;
+import dataClasses.Map.MapCell;
+import dataClasses.Story.Storyline;
 
 import java.util.Scanner;
 

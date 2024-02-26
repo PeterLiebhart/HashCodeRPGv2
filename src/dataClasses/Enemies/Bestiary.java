@@ -1,6 +1,7 @@
-package Data.Enemies;
+package dataClasses.Enemies;
 
-import Classes.Entities.Base.Entity;
+import dataClasses.Entity;
+
 import java.util.List;
 import java.util.Objects;
 

@@ -1,8 +1,4 @@
-package Classes.Entities.Base;
-
-import Classes.Combat;
-
-import java.util.Scanner;
+package dataClasses;
 
 public class Entity {
     int id;
@@ -38,8 +34,7 @@ public class Entity {
         this.health -= damage;
     }
 
-    public Combat.Action decideAction(){
-        if(this.isPlayer){
+/*        if(this.isPlayer){
             Scanner scanner = new Scanner(System.in);
             Combat.Action playerAction = Combat.Action.INVALID;
 
@@ -57,7 +52,7 @@ public class Entity {
         }else{
             return Combat.Action.ATTACK;
         }
-    }
+    }*/
 
     public Entity getCurrentTarget(){
         return this.currentTarget;

@@ -1,17 +1,18 @@
-package Services.Initializers;
+package serviceClasses.Initializers;
 
-import Classes.Entities.Base.Entity;
-import Classes.Entities.Position;
-import Data.Enemies.Bestiarium;
-import Data.Map.MapCell;
-import Data.Map.Map;
+import dataClasses.Enemies.Bestiary;
+import dataClasses.Enemies.Entity;
+import dataClasses.Map.Map;
+import dataClasses.Map.MapCell;
+import dataClasses.Map.Position;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import static Services.XMLReader.readXMLDocument;
+import static serviceClasses.XML.XMLReader.readXMLDocument;
 
 public class MapInitializor {
     public static void initializeMap(String filepath){
@@ -50,7 +51,7 @@ public class MapInitializor {
             Node enemieNode = enemieNodeList.item(e);
             Element enemieElement = (Element) enemieNode;
             String id = enemieElement.getTextContent();
-            enemies.add(Bestiarium.getInstance().getEntityByID(Integer.parseInt(id)));
+            enemies.add(Bestiary.getInstance().getEntityByID(Integer.parseInt(id)));
         }
         return  enemies;
     }

@@ -1,15 +1,14 @@
-package Services.Initializers;
+package serviceClasses.Initializers;
 
-import Classes.Entities.Base.Entity;
-import Data.Enemies.Bestiarium;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static Services.XMLReader.readXMLDocument;
+import dataClasses.Enemies.Entity;
+
+import static serviceClasses.XML.XMLReader.readXMLDocument;
 
 public class ItemInitializor {
     public static void initializeItems(String filepath) {
