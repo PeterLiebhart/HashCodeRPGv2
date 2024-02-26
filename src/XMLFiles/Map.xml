@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Map>
+    <MapCell>
+        <title>Sleeping Cell</title>
+        <description>A small dark room, with nothing but a pile of hay and a bucket. A single door leading outside.</description>
+        <availableEntitiesInCell>
+        </availableEntitiesInCell>
+        <Position>
+            <x>0</x>
+            <y>0</y>
+        </Position>
+    </MapCell>
+    <MapCell>
+        <title>Forest</title>
+        <description>A small forest at the edge of a vast field.</description>
+        <availableEntitiesInCell>
+            <id>1</id>
+            <id>2</id>
+        </availableEntitiesInCell>
+        <Position>
+            <x>0</x>
+            <y>1</y>
+        </Position>
+    </MapCell>
+    <MapCell>
+        <title>Field</title>
+        <description>A vast field overgrown with flowers and weeds.</description>
+        <availableEntitiesInCell>
+            <id>2</id>
+        </availableEntitiesInCell>
+        <Position>
+            <x>0</x>
+            <y>2</y>
+        </Position>
+    </MapCell>
+</Map>
