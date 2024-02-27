@@ -1,5 +1,6 @@
 package serviceClasses.Saving;
 
+import dataClasses.Enemies.Player;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -16,7 +17,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class Save {
-    public void saveToXML(String xml) {
+    static String xml = "C:\\Users\\everyone codes\\IdeaProjects\\Save\\";
+
+    public static void saveToXML() {
+        Player.getInstance();
         Document dom;
         Element e = null;
 
@@ -29,23 +33,23 @@ public class Save {
             dom = db.newDocument();
 
             // create the root element
-            Element rootEle = dom.createElement("roles");
+            Element rootEle = dom.createElement("Entity");
 
             // create data elements and place them under root
-            e = dom.createElement("role1");
-            e.appendChild(dom.createTextNode("role1"));
+            e = dom.createElement("Name");
+            e.appendChild(dom.createTextNode(Player.getPlayerName()));
             rootEle.appendChild(e);
 
-            e = dom.createElement("role2");
-            e.appendChild(dom.createTextNode("role2"));
+            e = dom.createElement("health");
+            e.appendChild(dom.createTextNode(String.valueOf(Player.getPlayerEntity().getCurrentHealth())));
             rootEle.appendChild(e);
 
-            e = dom.createElement("role3");
-            e.appendChild(dom.createTextNode("role3"));
+            e = dom.createElement("level");
+            e.appendChild(dom.createTextNode(String.valueOf(Player.getPlayerEntity().getLevel())));
             rootEle.appendChild(e);
 
-            e = dom.createElement("role4");
-            e.appendChild(dom.createTextNode("role4"));
+            e = dom.createElement("attack");
+            e.appendChild(dom.createTextNode(String.valueOf(Player.getPlayerEntity().getAttack())));
             rootEle.appendChild(e);
 
             dom.appendChild(rootEle);
@@ -60,12 +64,10 @@ public class Save {
 
                 // send DOM to file
                 tr.transform(new DOMSource(dom),
-                        new StreamResult(new FileOutputStream(xml)));
+                        new StreamResult(new FileOutputStream(xml + Player.getPlayerName() + ".xml")));
 
-            } catch (TransformerException te) {
+            } catch (TransformerException | IOException te) {
                 System.out.println(te.getMessage());
-            } catch (IOException ioe) {
-                System.out.println(ioe.getMessage());
             }
         } catch (ParserConfigurationException pce) {
             System.out.println("UsersXML: Error trying to instantiate DocumentBuilder " + pce);

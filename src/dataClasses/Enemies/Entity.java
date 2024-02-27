@@ -70,6 +70,14 @@ public class Entity {
         return this.name;
     }
 
+    public double getAttack(){
+        return this.attack;
+    }
+
+    public double getLevel(){
+        return this.level;
+    }
+
     public int getId() {
         return id;
     }

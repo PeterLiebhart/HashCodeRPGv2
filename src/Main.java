@@ -19,14 +19,7 @@ public class Main {
 
         boolean runGame = true;
         while (runGame){
-            Exploration.startExploration(Player.getInstance());
+            Exploration.startExploration();
         }
-    }
-
-    public static Entity spawnEnemy(){
-        List<Entity> enemies = Bestiary.getInstance().getEntitiesByName("Goblin");
-        Entity currentEnemy = enemies.getFirst();
-        System.out.println("A " + currentEnemy.name + " appeared!");
-        return currentEnemy;
     }
 }

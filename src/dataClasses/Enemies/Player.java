@@ -5,7 +5,7 @@ import dataClasses.Map.MapCell;
 import dataClasses.Map.Position;
 
 public class Player {
-    private static Entity player;
+    private static Entity playerEntity;
     private static MapCell currentPosition;
     private static Player single_instance = null;
 
@@ -20,15 +20,27 @@ public class Player {
         return single_instance;
     }
 
-    public MapCell getCurrentPosition(){
+    public static void setPlayerEntity(Entity currentPlayer){
+        playerEntity = currentPlayer;
+    }
+
+    public static Entity getPlayerEntity() {
+        return playerEntity;
+    }
+
+    public static String getPlayerName() {
+        return playerEntity.getName();
+    }
+
+    public static MapCell getCurrentPosition(){
         return currentPosition;
     }
 
-    public void setCurrentPositionViaPosition(Position position){
+    public static void setCurrentPositionViaPosition(Position position){
         setCurrentPositionViaMapCell(Map.getInstance().getMapCellByPosition(position));
     }
 
-    public void setCurrentPositionViaMapCell(MapCell mapCell){
+    public static void setCurrentPositionViaMapCell(MapCell mapCell){
         Player.currentPosition = mapCell;
     }
 }

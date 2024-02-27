@@ -3,6 +3,7 @@ package dataClasses.Map;
 import dataClasses.Enemies.Entity;
 
 import java.util.List;
+import java.util.Random;
 
 public class MapCell {
     public String title;
@@ -26,6 +27,11 @@ public class MapCell {
 
     public List<Entity> getAvailableEntitiesInCell() {
         return availableEntitiesInCell;
+    }
+
+    public Entity getRandomAvailableEnemy() {
+        Random random = new Random();
+        return availableEntitiesInCell.get(random.nextInt(availableEntitiesInCell.size()));
     }
 
     public void setAvailableEntitiesInCell(List<Entity> availableEntitiesInCell) {
