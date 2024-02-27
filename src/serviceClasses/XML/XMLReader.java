@@ -1,4 +1,4 @@
-package serviceClasses;
+package serviceClasses.XML;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;

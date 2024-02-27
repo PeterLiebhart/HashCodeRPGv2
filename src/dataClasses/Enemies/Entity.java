@@ -1,4 +1,4 @@
-package dataClasses;
+package dataClasses.Enemies;
 
 public class Entity {
     int id;

@@ -1,10 +1,15 @@
-package Data.Story;
+package dataClasses.Story;
 
-import Classes.Entities.Base.Entity;
+import dataClasses.Enemies.Entity;
 
 import java.util.Scanner;
 
 public class Storyline {
+
+    public static void prePlayerNameStory(){
+        System.out.println("Welcome to the world of Thravis. \n"
+                + "What is your name, oh adventurer?");
+    }
     public static void startStoryIntroduction(Entity player){
         System.out.println(player.name + ", this world is under constant thread of destruction.\n"
                 + "Not by monsters, but by the Kingdoms ruling it. Something must be done.\n"

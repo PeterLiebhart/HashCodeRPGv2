@@ -1,4 +1,4 @@
-package serviceClasses.Initializers;
+package serviceClasses.Initializers.Data;
 
 import dataClasses.Enemies.Bestiary;
 import dataClasses.Enemies.Entity;

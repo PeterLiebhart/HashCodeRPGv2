@@ -1,4 +1,4 @@
-package serviceClasses;
+package serviceClasses.Saving;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -33,19 +33,19 @@ public class Save {
 
             // create data elements and place them under root
             e = dom.createElement("role1");
-            e.appendChild(dom.createTextNode(role1));
+            e.appendChild(dom.createTextNode("role1"));
             rootEle.appendChild(e);
 
             e = dom.createElement("role2");
-            e.appendChild(dom.createTextNode(role2));
+            e.appendChild(dom.createTextNode("role2"));
             rootEle.appendChild(e);
 
             e = dom.createElement("role3");
-            e.appendChild(dom.createTextNode(role3));
+            e.appendChild(dom.createTextNode("role3"));
             rootEle.appendChild(e);
 
             e = dom.createElement("role4");
-            e.appendChild(dom.createTextNode(role4));
+            e.appendChild(dom.createTextNode("role4"));
             rootEle.appendChild(e);
 
             dom.appendChild(rootEle);

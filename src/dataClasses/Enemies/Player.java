@@ -1,48 +1,34 @@
-package dataClasses;
+package dataClasses.Enemies;
 
 import dataClasses.Map.Map;
 import dataClasses.Map.MapCell;
-import dataClasses.Story.Storyline;
-
-import java.util.Scanner;
+import dataClasses.Map.Position;
 
 public class Player {
-    Entity player;
-    MapCell currentPosition;
+    private static Entity player;
+    private static MapCell currentPosition;
+    private static Player single_instance = null;
 
     public Player(){
     }
 
-    public Player(Entity player){
-        this.player = player;
-    }
+    public static synchronized Player getInstance()
+    {
+        if (single_instance == null)
+            single_instance = new Player();
 
-    public Entity getPlayerEntity(){
-        return this.player;
+        return single_instance;
     }
 
     public MapCell getCurrentPosition(){
         return currentPosition;
     }
 
-    public void createPlayer(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the world of Thravis. \n"
-        + "What is your name, oh adventurer?");
-        String playerName = scanner.nextLine();
-        createBasicPlayerEntity(playerName);
-        setStartingPosition();
-        Storyline.startStoryIntroduction(player);
+    public void setCurrentPositionViaPosition(Position position){
+        setCurrentPositionViaMapCell(Map.getInstance().getMapCellByPosition(position));
     }
 
-    private void createBasicPlayerEntity(String playerName){
-        int baseLevel = 1;
-        int baseHealth = 10;
-        int baseAttack = 1;
-        this.player = new Entity(true, playerName, baseLevel, baseHealth, baseAttack);
-    }
-
-    private void setStartingPosition(){
-        this.currentPosition = Map.getInstance().getMapCellByCoordinates(0, 0);
+    public void setCurrentPositionViaMapCell(MapCell mapCell){
+        Player.currentPosition = mapCell;
     }
 }

@@ -1,7 +1,6 @@
-package Data.Map;
+package dataClasses.Map;
 
-import Classes.Entities.Base.Entity;
-import Classes.Entities.Position;
+import dataClasses.Enemies.Entity;
 
 import java.util.List;
 
@@ -41,7 +40,8 @@ public class MapCell {
         return position;
     }
 
+    //TODO: move and rework
     public void printDescription(){
-        System.out.println(this.description);
+            System.out.println(this.description);
     }
 }

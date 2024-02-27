@@ -1,20 +1,18 @@
 package dataClasses.Enemies;
 
-import dataClasses.Entity;
-
 import java.util.List;
 import java.util.Objects;
 
-public class Bestiarium {
-    private static Bestiarium single_instance = null;
+public class Bestiary {
+    private static Bestiary single_instance = null;
     private static List<Entity> entities;
 
-    public Bestiarium() {
+    public Bestiary() {
     }
-    public static synchronized Bestiarium getInstance()
+    public static synchronized Bestiary getInstance()
     {
         if (single_instance == null)
-            single_instance = new Bestiarium();
+            single_instance = new Bestiary();
 
         return single_instance;
     }
@@ -24,7 +22,7 @@ public class Bestiarium {
     }
 
     public void setEntities(List<Entity> entities) {
-        Bestiarium.entities = entities;
+        Bestiary.entities = entities;
     }
 
     public List<Entity> getEntitiesByName(String name){
