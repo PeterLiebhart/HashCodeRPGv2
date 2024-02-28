@@ -19,4 +19,12 @@ public class GameWindow extends JFrame{
         this.setVisible(true);
 
     }
+
+    public int getWIDTH() {
+        return WIDTH;
+    }
+
+    public int getHEIGHT() {
+        return HEIGHT;
+    }
 }

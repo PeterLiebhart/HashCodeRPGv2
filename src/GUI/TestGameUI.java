@@ -5,42 +5,50 @@ import java.awt.*;
 
 public class TestGameUI {
 
+    GameWindow window;
     Container container;
-    JPanel titlePanel;
+    JPanel titlePanel, startButtonPanel;
+    JLabel titleText;
+    JButton startButton;
 
-    public static void main(String[] args) {
-        new TestGameUI();
-    }
+    Font titleFont = new Font("Verdana", Font.PLAIN, 30);
+    Font textFont = new Font("Verdana", Font.PLAIN, 15);
+
 
     public TestGameUI() {
 
-        GameWindow window = new GameWindow();
+        window = new GameWindow();
 
         container = window.getContentPane();
 
-        // titlePanel is a blue box here
-        titlePanel = new JPanel();       // create space in our window for the title, using a panel
-        titlePanel.setBounds(100, 100, 600, 150);
-        titlePanel.setBackground(Color.cyan);
+        // create space in our window for the title, using a panel
+        titlePanel = new JPanel();
+        titlePanel.setBounds(320, 100, 600, 150);
+        titlePanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        titlePanel.setBackground(Color.black);
 
         // JLabel creates a text field
-        JLabel textPanel = new JLabel();
+        titleText = new JLabel("Best Adventure Game Ever!");
+        titleText.setFont(titleFont);
+        titleText.setForeground(Color.white);
 
-        textPanel.setBounds(200, 150, 500, 50);
-        textPanel.setFont(new Font("Arial", Font.PLAIN, 40));
-        textPanel.setForeground(Color.white);
-        textPanel.setText("Hello! I'm a JLabel!");
+        startButtonPanel = new JPanel();
+        startButtonPanel.setBounds(560, 400, 150, 50);
+        startButtonPanel.setBackground(Color.black);
 
-        // text field to enter text
-        TextField answerField = new TextField();
-        answerField.setBounds(200, 270, 100, 50);
+        startButton = new JButton("START!");
+        startButton.setBackground(Color.black);
+        startButton.setForeground(Color.white);
+        startButton.setFocusPainted(false);
+        startButton.setFont(textFont);
 
+        // add elements to their respective panels
+        titlePanel.add(titleText);
+        startButtonPanel.add(startButton);
 
         // in this container we can place buttons, text etc.
-        container.add(answerField);
-        container.add(textPanel);
         container.add(titlePanel);
-
+        container.add(startButtonPanel);
 
     }
 
