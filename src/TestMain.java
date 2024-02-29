@@ -1,3 +1,4 @@
+
 import GUI.GameWindow;
 import GUI.TitleScreen;
 
@@ -7,6 +8,5 @@ public class TestMain {
 
         GameWindow mainWindow = new GameWindow();
         TitleScreen titleScreen = new TitleScreen(mainWindow);
-
     }
 }

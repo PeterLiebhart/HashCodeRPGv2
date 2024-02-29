@@ -1,7 +1,11 @@
 package GUI;
 
+import GUI.buttons.ChoiceButton;
+
 import javax.swing.*;
 import java.awt.*;
+
+import static GUI.Constants.FontConstants.*;
 
 public class TitleScreen {
 
@@ -11,10 +15,7 @@ public class TitleScreen {
     JPanel titlePanel, startButtonPanel;
 
     JLabel titleText;
-    JButton startButton;
-
-    Font titleFont = new Font("Verdana", Font.PLAIN, 30);
-    Font textFont = new Font("Verdana", Font.PLAIN, 15);
+    ChoiceButton startButton;
 
     TitleScreenHandler titleScreenHandler;
 
@@ -36,20 +37,15 @@ public class TitleScreen {
 
         // JLabel creates a text field
         titleText = new JLabel("Best Adventure Game Ever!");
-        titleText.setFont(titleFont);
+        titleText.setFont(TITLE_FONT);
         titleText.setForeground(Color.white);
 
-
-        // Start Button & its Panel
+        // Start Button & its Panel, custom class ChoiceButton extends JButton
         startButtonPanel = new JPanel();
         startButtonPanel.setBounds(mainWindow.getWIDTH() / 2 - 100, 400, 150, 50);
         startButtonPanel.setBackground(Color.black);
 
-        startButton = new JButton("START");
-        startButton.setBackground(Color.black);
-        startButton.setForeground(Color.white);
-        startButton.setFocusPainted(false);
-        startButton.setFont(textFont);
+        startButton = new ChoiceButton("START");
         startButton.addActionListener(titleScreenHandler);
 
         // add elements to their respective panels
