@@ -12,6 +12,7 @@ public class GameWindow extends JFrame{
     public GameWindow() {
 
         this.setSize(WIDTH, HEIGHT);
+        this.setTitle("The BESTEST adventure ever, muthafuckas!");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(Color.black);
         this.setLocationRelativeTo(null);     // center the window on screen
