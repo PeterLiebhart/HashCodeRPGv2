@@ -3,10 +3,12 @@ package GUI;
 import javax.swing.*;
 import java.awt.*;
 
-public class GameWindow extends JFrame{
+import static GUI.Constants.WindowConstants.*;
 
-    private final int WIDTH = 1280;
-    private final int HEIGHT = 720;
+public class GameWindow extends JFrame {
+
+    private final int WIDTH = WINDOW_WIDTH;
+    private final int HEIGHT = WINDOW_HEIGHT;
 
 
     public GameWindow() {

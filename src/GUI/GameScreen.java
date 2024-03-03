@@ -1,7 +1,9 @@
 package GUI;
 
 import GUI.buttons.ChoiceButton;
-import static GUI.Constants.FontConstants.*;
+import GUI.maintextpanel.MainTextPanel;
+import GUI.playerstats.StatBoard;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,8 +13,8 @@ public class GameScreen {
     GameWindow mainWindow;
     Container container;
 
-    JPanel mainTextPanel;
-    JTextArea mainTextArea;
+    StatBoard statBoardPlayer;
+    MainTextPanel mainTextPanel;
 
     JPanel choiceButtonPanel;
     ChoiceButton choice1, choice2, choice3;
@@ -26,25 +28,17 @@ public class GameScreen {
 
     public void createGameScreen() {
 
-        mainTextPanel = new JPanel();
-        mainTextPanel.setBounds(320, 100, 600, 250);
-        mainTextPanel.setBackground(Color.cyan);
+        // player stats board
+        statBoardPlayer = new StatBoard("Katzuro", 80, 100, 100);
+        container.add(statBoardPlayer);
 
+        // main text panel
+        mainTextPanel = new MainTextPanel();
         container.add(mainTextPanel);
-
-
-        // main text area
-        mainTextArea = new JTextArea("Hi, I'm the main text area! And this is gonna be the best f*ing adventure you've ever played in your entire life, muthafucka!");
-        mainTextArea.setBounds(mainWindow.getWIDTH() / 2 - 100, 100, 600, 250);
-        mainTextArea.setBackground(Color.black);
-        mainTextArea.setForeground(Color.white);
-        mainTextArea.setFont(TEXT_FONT);
-        mainTextArea.setLineWrap(true); // if text is too long it will wrap it automatically
-        mainTextPanel.add(mainTextArea);
 
         // choice buttons & panel
         choiceButtonPanel = new JPanel();
-        choiceButtonPanel.setBounds(mainWindow.getWIDTH() / 2 - 190, 390, 350, 150);
+        choiceButtonPanel.setBounds(mainWindow.getWIDTH() / 2 - 190, 410, 350, 150);
         choiceButtonPanel.setBackground(Color.yellow);
         choiceButtonPanel.setLayout(new GridLayout(4, 1));  // # of rows, # of cols
 
