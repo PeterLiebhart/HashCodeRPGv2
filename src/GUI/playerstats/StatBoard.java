@@ -30,9 +30,20 @@ public class StatBoard extends JPanel {
 
     }
 
-    public void update(int playerHealth, int playerLevel, int playerAttack) {
+    public void updateAllStats(int playerHealth, int playerLevel, int playerAttack) {
         // get the updated values for health, level and attack
 
     }
 
+    public void updatePlayerLevelLabel(int update) {
+        playerLevelLabel.setText("LEVEL: " + update);
+    }
+
+    public void updatePlayerHealthLabel(int update) {
+        playerHealthLabel.setText("HEALTH: " + update);
+    }
+
+    public void updatePlayerAttackLabel(int update) {
+        playerAttackLabel.setText("ATTACK: " + update);
+    }
 }

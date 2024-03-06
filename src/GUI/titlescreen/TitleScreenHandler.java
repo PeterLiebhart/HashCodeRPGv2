@@ -1,4 +1,7 @@
-package GUI;
+package GUI.titlescreen;
+
+import GUI.GameScreen;
+import GUI.GameWindow;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

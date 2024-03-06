@@ -1,4 +1,4 @@
-package GUI.maintextpanel;
+package GUI.maintext;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,15 +9,16 @@ import static GUI.Constants.WindowConstants.*;
 public class MainTextPanel extends JPanel {
 
     JTextArea mainTextArea;
+    String text;
 
-    public MainTextPanel() {
+    public MainTextPanel(String text) {
 
         // main text panel
         this.setBounds(320, 120, 600, 250);
         this.setBackground(Color.cyan);
 
         // main text area
-        mainTextArea = new JTextArea("Hi, I'm the main text area! And this is gonna be the best f*ing adventure you've ever played in your entire life, muthafucka!");
+        mainTextArea = new JTextArea(text);
         mainTextArea.setBounds(WINDOW_WIDTH / 2 - 100, 120, 600, 250);
         mainTextArea.setBackground(Color.black);
         mainTextArea.setForeground(Color.white);
@@ -26,5 +27,10 @@ public class MainTextPanel extends JPanel {
         mainTextArea.setWrapStyleWord(true); // ensure words aren't broken up
 
         this.add(mainTextArea);
+    }
+
+    public void updateMainText(String text) {
+        this.text = text;
+        mainTextArea.setText(text);
     }
 }

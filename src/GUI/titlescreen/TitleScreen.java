@@ -1,6 +1,7 @@
-package GUI;
+package GUI.titlescreen;
 
-import GUI.buttons.ChoiceButton;
+import GUI.GameWindow;
+import GUI.choicebuttons.ChoiceButton;
 
 import javax.swing.*;
 import java.awt.*;

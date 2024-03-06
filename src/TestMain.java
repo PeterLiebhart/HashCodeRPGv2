@@ -1,6 +1,6 @@
 
 import GUI.GameWindow;
-import GUI.TitleScreen;
+import GUI.titlescreen.TitleScreen;
 
 public class TestMain {
 
