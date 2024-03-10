@@ -4,6 +4,7 @@ import dataClasses.Entity;
 import dataClasses.Player;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -87,5 +88,52 @@ public class CombatTests {
                 Arguments.of(10, new Entity("Test", 0, 10, 5), 0),
                 Arguments.of(20, player, 30)
         );
+    }
+
+    @ParameterizedTest
+    @MethodSource("isDeadProvider")
+    void testIsDead(Entity entity, boolean expected) {
+        boolean result = combat.isDead(entity);
+        Assertions.assertEquals(expected, result);
+    }
+    static Stream<Arguments> isDeadProvider() {
+        return Stream.of(
+                Arguments.of(new Entity("Test", 50, 10, 5), false),
+                Arguments.of(new Entity("Test", 10, 10, 5), false),
+                Arguments.of(new Entity("Test", 0, 10, 5), true),
+                Arguments.of(new Entity("Test", 0, 10, 5), true)
+        );
+    }
+    @Test
+    void testIsDeadPlayer() {
+        player = Player.getInstance("Test", 50, 10, 5);
+        player.setHP(0);
+        combat = new Combat(callback);
+        boolean result = combat.isDead(player);
+        Assertions.assertTrue(result);
+    }
+
+    @ParameterizedTest
+    @MethodSource("isAtFullHealthProvider")
+    void testIsAtFullHealth(Entity entity, boolean expected) {
+        boolean result = combat.isAtFullHealth(entity);
+        Assertions.assertEquals(expected, result);
+    }
+    static Stream<Arguments> isAtFullHealthProvider() {
+        return Stream.of(
+                Arguments.of(new Entity("Test", 50, 10, 5), false),
+                Arguments.of(new Entity("Test", 100, 10, 5), true),
+                Arguments.of(new Entity("Test", 90, 10, 5), false),
+                Arguments.of(new Entity("Test", 0, 10, 5), false),
+                Arguments.of(new Entity("Test", 0, 10, 5), false)
+        );
+    }
+    @Test
+    void testIsAtFullHealthPlayer() {
+        player = Player.getInstance("Test", 50, 10, 5);
+        player.setHP(100);
+        combat = new Combat(callback);
+        boolean result = combat.isAtFullHealth(player);
+        Assertions.assertTrue(result);
     }
 }
