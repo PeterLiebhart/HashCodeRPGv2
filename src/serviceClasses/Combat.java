@@ -8,7 +8,8 @@ public class Combat {
     public interface CombatCallback {
         void onDamageApplied(int damage, Entity entity);
         void onHealApplied(int amount, Entity entity);
-        void onEntityDied(Entity entity);
+        void onEntityDeath(Entity entity);
+        void onHealthAlreadyFull(Entity entity);
     }
 
     private CombatCallback callback;
@@ -17,7 +18,7 @@ public class Combat {
         this.callback = callback;
     }
 
-    //Method to calculate the damage of an attack
+    //Method to calculate the damage using the entity's AP and the target's armor
     public int calculateDamage(int AP, int armor) {
         return AP - armor;
     }
@@ -27,12 +28,17 @@ public class Combat {
         entity.setHP(entity.getHP() - damage);
         callback.onDamageApplied(damage, entity);
         if (isDead(entity)) {
-            callback.onEntityDied(entity);
+            callback.onEntityDeath(entity);
         }
     }
 
     //Method to heal the entity by a certain amount
+    //If the entity is at full health, it will call the onHealthAlreadyFull method from the callback interface
     public void applyHeal(int amount, Entity entity) {
+        if(isAtFullHealth(entity)) {
+            callback.onHealthAlreadyFull(entity);
+            return;
+        }
         entity.setHP(entity.getHP() + amount);
         callback.onHealApplied(amount, entity);
     }

@@ -48,7 +48,13 @@ public class Entity {
     }
 
     public void setHP(int HP) {
-        this.HP = HP;
+        if (HP > 100) {
+            this.HP = 100;
+        } else if (HP < 0) {
+            this.HP = 0;
+        } else {
+            this.HP = HP;
+        }
     }
 
     public void setAP(int AP) {
